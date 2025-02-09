@@ -1,0 +1,82 @@
+A Game Development program [Game Over Godot] based on Christmas Theme that encourages participation from beginners with zero experience in game developing using GODOT Game Engine.This competition will be beginner friendly and will provide all needed support including video tutorials and mentors.
+
+Build Your First Game, One Step at a Time,
+No Experience Just Imagination!
+
+Time
+21st Dec to 29th Dec
+
+Mode
+Online
+
+Santa Bylaws 
+
+Make sure your ideas are original and does not mirror an existing game.
+The game you create should be centered around the theme of Christmas.
+Any games from 2D endless game to 3D open world games are allowed.
+Gameplay should at least be 5 minutes long.
+
+
+
+1.assests
+  mesh
+  animation
+
+2.physiscs
+  programming or logic
+
+3.trail
+  idea submition
+
+4.meet 
+  build start
+
+5.build  
+  offline
+
+6.build meet
+
+7.submission noon 12pm submission
+
+
+
+
+
+
+
+
+
+
+
+int n = s.size();
+    
+    // Create a new string that is the original + a delimiter + reversed original
+    string rev_s = s;
+    reverse(rev_s.begin(), rev_s.end());
+    string temp = s + "#" + rev_s;
+
+    int m = temp.size();
+    vector<int> lps(m, 0);
+    int len = 0; // Length of the previous longest prefix suffix
+    int i = 1;
+
+    // Construct the LPS array for the new string
+    while (i < m) {
+        if (temp[i] == temp[len]) {
+            len++;
+            lps[i] = len;
+            i++;
+        } else {
+            if (len != 0) {
+                len = lps[len - 1];
+            } else {
+                lps[i] = 0;
+                i++;
+            }
+        }
+    }
+
+    // The minimum number of characters to add is the original length
+    // minus the LPS value of the last character
+    return n - lps[m - 1];
+
